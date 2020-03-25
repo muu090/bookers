@@ -22,3 +22,39 @@
   </tbody>
 </table>
 
+<h2>New book</h2>
+
+<%= form_for(@book) do |f| %>
+
+<% if @book.errors %>
+<%# <div id="error_explanation"> %>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<%# </div> %>
+<% end %>
+
+
+  <div class="field">
+    <%# <div class="field_with_errors"> %>
+      <label for="book_title">Title</label>
+      <%= f.text_field :title %>
+    <%# </div> %>
+  </div>
+
+  <div class="field">
+    <%# <div class="field_with_errors"> %>
+      <label for="book_body">Body</label>
+      <%= f.text_area :body %>
+    <%# </div> %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Create Book' %>
+  </div>
+
+<% end %>
+
+
